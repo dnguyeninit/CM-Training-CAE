@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <import resource="classpath:/framework/spring/blueprint-contentbeans.xml"/>
+
+  <!-- TODO: Add a mapping for your custom content types
+
+	   Template:
+
+       <bean name="contentBeanFactory:MyDocumentType"
+             parent="abstractTeasable-blueprint-doctypes"
+             class="MyDocumentTypeImpl"
+	     scope="prototype"/>
+	-->
+
+</beans>

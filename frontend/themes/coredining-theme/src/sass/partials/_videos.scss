@@ -1,0 +1,22 @@
+// Definition of CSS rules for pictures
+@import "~@coremedia/brick-utils/src/sass/partials/aspectratiobox";
+
+.xx-video {
+
+  // Elements...
+  .cm-mediaelementwrapper iframe {
+    @include stretch-absolute();
+  }
+
+  &__media {
+    border: lightgray solid thin;
+    padding: 3px 4px;
+  }
+
+  // Modifiers...
+  &--large {
+    @include aspect-ratio-box(16, 9);
+  }
+
+
+}
