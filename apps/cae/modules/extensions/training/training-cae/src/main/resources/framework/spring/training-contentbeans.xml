@@ -5,14 +5,9 @@
 
   <import resource="classpath:/framework/spring/blueprint-contentbeans.xml"/>
 
-  <!-- TODO: Add a mapping for your custom content types
-
-	   Template:
-
-       <bean name="contentBeanFactory:MyDocumentType"
-             parent="abstractTeasable-blueprint-doctypes"
-             class="MyDocumentTypeImpl"
-	     scope="prototype"/>
-	-->
+  <bean name="contentBeanFactory:CMVideoTutorial"
+        class="com.coremedia.blueprint.training.contentbeans.CMVideoTutorialImpl"
+        parent="abstractTeasable-blueprint-doctypes"
+        scope="prototype"/>
 
 </beans>
