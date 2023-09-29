@@ -11,9 +11,13 @@
   </description>
 
   <!-- Bean Definition for Programmed Views... -->
-
+  <bean id="pdfServletView" class="com.coremedia.blueprint.training.views.PdfServletView"/>
 
   <!-- Customizers... -->
-
+  <customize:append id="trainingBlueprintProgrammedViewsCustomizer" bean="blueprintProgrammedViews">
+    <map>
+      <entry key="com.coremedia.blueprint.common.contentbeans.CMTeasable#pdf" value-ref="pdfServletView"/>
+    </map>
+  </customize:append>
 
 </beans>
