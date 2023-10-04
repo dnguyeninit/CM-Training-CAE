@@ -4,15 +4,17 @@ import com.coremedia.blueprint.cae.contentbeans.CMArticleImpl;
 import com.coremedia.blueprint.common.contentbeans.CMVideo;
 import com.coremedia.blueprint.common.navigation.Linkable;
 import com.coremedia.blueprint.ecommerce.contentbeans.CMProduct;
+import com.coremedia.blueprint.training.validation.SupportsCustomValidation;
 import com.coremedia.cap.content.Content;
 import com.coremedia.xml.Markup;
 
 import java.util.List;
 
-public class CMVideoTutorialImpl extends CMArticleImpl implements CMVideoTutorial {
+public class CMVideoTutorialImpl extends CMArticleImpl implements CMVideoTutorial, SupportsCustomValidation {
 
   // helper method
   // return bean if it's not null and if it's valid
+  // if bean is null or if bean is not valid, return null
   private <T extends Linkable> T filter(T bean) {
     return (bean != null && getValidationService().validate(bean)) ? bean : null;
   }
@@ -84,5 +86,17 @@ public class CMVideoTutorialImpl extends CMArticleImpl implements CMVideoTutoria
     return createBeansFor(products, CMProduct.class);
   }
 
+  // this method is used by CustomValidator, which is registered in the contentbeanValidatorList
+  // as a custom validator
+  @Override
+  public boolean validate() {
 
+    // if no video is found, then we assume that the VideoTutorial is still in production
+    if (getVideoUnfiltered() == null) {
+      return true;
+    }
+
+    // if an unfiltered video is found (getVideoUnfiltered() is not null), check if the video is found
+    return getVideo() != null;
+  }
 }

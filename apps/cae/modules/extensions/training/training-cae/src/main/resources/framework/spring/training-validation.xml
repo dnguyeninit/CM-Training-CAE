@@ -11,9 +11,13 @@
   </description>
 
   <!-- Bean definitions -->
-
+  <bean id="customValidator" class="com.coremedia.blueprint.training.validation.CustomValidator" />
 
   <!-- Customizers -->
-
+  <customize:append id="trainingContentbeanValidatorListCustomizer" bean="contentbeanValidatorList">
+    <list>
+      <ref bean="customValidator"/>
+    </list>
+  </customize:append>
 
 </beans>
