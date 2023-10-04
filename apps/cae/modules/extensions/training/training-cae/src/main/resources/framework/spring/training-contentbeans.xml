@@ -8,6 +8,7 @@
   <bean name="contentBeanFactory:CMVideoTutorial"
         class="com.coremedia.blueprint.training.contentbeans.CMVideoTutorialImpl"
         parent="abstractTeasable-blueprint-doctypes"
-        scope="prototype"/>
+        scope="prototype">
+  </bean>
 
 </beans>
